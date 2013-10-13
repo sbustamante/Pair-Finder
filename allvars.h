@@ -8,23 +8,24 @@
 #define HALOSPR		2000
 
 #define NMAX1		1000
-#define NMAX2		10
+#define NMAX2		9
 
 //Macros for Parameters
 #define NAXE		0
 #define LBOX		1
 #define MMIN		2
 #define MMAX		3
-#define RREL		4
-#define VMAX		5
-#define RPMAS		6
-#define MMMAX		7
-#define RMMAX		8
+#define RRMIN		4
+#define RRMAX		6
+#define VMAX		7
+#define RPMAS		8
+#define MMMAX		9
+#define RMMAX		0
 
-#define NDAT		9
-#define PAIR		10
-#define ISOPAIR		11
-#define HRMAS		12
+#define NDAT		10
+#define PAIR		11
+#define ISOPAIR		12
+#define HRMAS		13
 
 //Other parameters
 #define X		0

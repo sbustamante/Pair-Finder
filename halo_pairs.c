@@ -1,7 +1,7 @@
 #include <allvars.h>
 
 int main( int argc, char *argv[] )
-{   
+{
 	//Individual halos
 	struct halo *halos;
 	halos = (struct halo *)calloc( MAXHALOS, sizeof( struct halo ) );
@@ -31,8 +31,7 @@ int main( int argc, char *argv[] )
 	
 	//Load Processed input datafile------------------------------------------------------------
 	  //Input Filename
-// 	sprintf( filename, "%s", "../Data/CLUES/16953/halos_catalog.dat" );
-	sprintf( filename, "%s", "./Halos_catalog.dat" );
+	sprintf( filename, "%s", argv[1] );
 	p[NDAT] = data_in( halos, filename, p[NAXE] );
 
 	//Neighborhood Construction----------------------------------------------------------------
