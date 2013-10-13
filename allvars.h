@@ -16,11 +16,11 @@
 #define MMIN		2
 #define MMAX		3
 #define RRMIN		4
-#define RRMAX		6
-#define VMAX		7
-#define RPMAS		8
-#define MMMAX		9
-#define RMMAX		0
+#define RRMAX		5
+#define VMAX		6
+#define RPMAS		7
+#define MMMAX		8
+#define RMMAX		9
 
 #define NDAT		10
 #define PAIR		11
