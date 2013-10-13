@@ -333,8 +333,9 @@ int pair_finder( struct halo halos[],
 			      halos[h2].Rmmas > p[RMMAX] &&
 			  //Negative relative radial velocity
  			      pairs[c1].Vrad <= p[VMAX] &&
-			  //Its relative distance is smaller that limit valor
- 			      pairs[c1].Rdis <= p[RREL] ){
+			  //Its relative distance is in the defined range
+ 			      pairs[c1].Rdis >= p[RRMIN] &&
+ 			      pairs[c1].Rdis <= p[RRMAX]){
 			    
 			      //Mass of halo 1
 			      isopair[c2].M1 = halos[h1].Mass;
