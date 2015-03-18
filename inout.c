@@ -154,16 +154,16 @@ int data_pair_out( struct pair pairs[],
     //GENERAL FILE
     file = fopen( filename, "w" );
     fprintf( file, "#HALO PAIR SAMPLES\t\tNumber of Pairs found: %d\n", Npair ); 
-    fprintf( file, "#IdPair\tId1\tM1\t\tRg1\tId2\tM2\t\tRg2\tRdis\t\tVrad\t\tId11pm\tR11pm\tId12pm\tR12pm\tId1Mm\tR1Mm\tId1um\tR1um\t\tId21pm\tR21pm\tId22pm\tR22pm\tId2Mm\tR2Mm\tId2um\tR2um\t\ti\tj\tk\n" );
+    fprintf( file, "#IdPair\tId1\tM1\t\tRg1\tId2\tM2\t\tRg2\tRdis\t\tVrad\t\tVtan\t\tId11pm\tR11pm\tId12pm\tR12pm\tId1Mm\tR1Mm\tId1um\tR1um\t\tId21pm\tR21pm\tId22pm\tR22pm\tId2Mm\tR2Mm\tId2um\tR2um\t\ti\tj\tk\n" );
     //Writing
     for( i=0; i<Npair; i++ ){
 	h1 = pairs[i].id1;
 	h2 = pairs[i].id2;
-	fprintf( file, "%d\t%d\t%1.4e\t%d\t%d\t%1.4e\t%d\t%4.3f\t\t%+4.3f\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t\t%d\t%d\t%d\n", 
+	fprintf( file, "%d\t%d\t%1.4e\t%d\t%d\t%1.4e\t%d\t%4.3f\t\t%+4.3f\t%+4.3f\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t\t%d\t%d\t%d\n", 
 		 pairs[i].idpair, 
 		 halos[h1].id_or, pairs[i].M1, pairs[i].oct1,
 		 halos[h2].id_or, pairs[i].M2, pairs[i].oct2,
-		 pairs[i].Rdis, pairs[i].Vrad,
+		 pairs[i].Rdis, pairs[i].Vrad, pairs[i].Vtan,
 		 halos[h1].idpmas[0], halos[h1].Rpmas[0],
 		 halos[h1].idpmas[1], halos[h1].Rpmas[1],
 		 halos[h1].idmmas,    halos[h1].Rmmas,

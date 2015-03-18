@@ -28,7 +28,7 @@ float radial_vel( float v1[3],
 		  float r1[3],
 		  float r2[3],
 		  int ic, int jc, int kc,
-		  float Lbox)
+		  float Lbox )
 {   
     float magr, Vrad;
     magr = distance( r1, r2, ic, jc, kc, Lbox);
@@ -44,6 +44,39 @@ float radial_vel( float v1[3],
     if(kc == 1)	Vrad += (v1[Z]-v2[Z])*(r1[Z]-r2[Z])*( fabs(r1[Z]-r2[Z]) - Lbox )/fabs(r1[Z]-r2[Z]);
     	   
     return Vrad/magr;
+}
+
+
+/**************************************************************************************************
+ NAME:       tangential_vel
+ FUNCTION:   calculate tangential velocity between two halos
+ INPUTS:     four 3D arrays (v1, v2, r1, r2), 3 type int with boundary conditions, Box length
+ RETURN:     0
+**************************************************************************************************/
+float tangential_vel( float v1[3],
+		      float v2[3],
+		      float r1[3],
+		      float r2[3],
+		      int ic, int jc, int kc,
+		      float Lbox )
+{   
+    float magr, Vtan;
+    magr = distance( r1, r2, ic, jc, kc, Lbox);
+  
+    Vtan = 0;
+    if(ic == 0)	Vtan += (v1[X]-v2[X])-(v1[X]-v2[X])*(r1[X]-r2[X])/magr;
+    if(ic == 1)	Vtan += (v1[X]-v2[X])-(v1[X]-v2[X])*(r1[X]-r2[X])/magr*\
+    ( fabs(r1[X]-r2[X]) - Lbox )/fabs(r1[X]-r2[X]);
+    
+    if(jc == 0)	Vtan += (v1[Y]-v2[Y])-(v1[Y]-v2[Y])*(r1[Y]-r2[Y])/magr;
+    if(jc == 1)	Vtan += (v1[Y]-v2[Y])-(v1[Y]-v2[Y])*(r1[Y]-r2[Y])/magr*\
+    ( fabs(r1[Y]-r2[Y]) - Lbox )/fabs(r1[Y]-r2[Y]);
+    
+    if(kc == 0)	Vtan += (v1[Z]-v2[Z])-(v1[Z]-v2[Z])*(r1[Z]-r2[Z])/magr;
+    if(kc == 1)	Vtan += (v1[Z]-v2[Z])-(v1[Z]-v2[Z])*(r1[Z]-r2[Z])/magr*\
+    ( fabs(r1[Z]-r2[Z]) - Lbox )/fabs(r1[Z]-r2[Z]);
+    	   
+    return fabs(Vtan);
 }
 
 
@@ -307,6 +340,13 @@ int pair_finder( struct halo halos[],
 						       halos[h1].cond_comp[1],
 						       halos[h1].cond_comp[2],
 						       p[LBOX]) + C_H0*pairs[c1].Rdis;
+			  //Tangential velocity between halos
+			  pairs[c1].Vtan = tangential_vel( halos[h1].v, halos[h2].v,
+							   halos[h1].r, halos[h2].r,
+							   halos[h1].cond_comp[0],
+							   halos[h1].cond_comp[1],
+							   halos[h1].cond_comp[2],
+							   p[LBOX]) + C_H0*pairs[c1].Rdis;
 			  //Id of pair
 			  pairs[c1].idpair = c1;
 			  halos[h1].idpair = c1;

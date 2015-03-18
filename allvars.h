@@ -97,6 +97,8 @@ struct pair{
     float Rdis;
     //Radial relative velocities
     float Vrad;
+    //Tangential relative velocities
+    float Vtan;
     //Pair id
     int idpair;
     };

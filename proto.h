@@ -11,3 +11,4 @@ int pair_finder( struct halo halos[], struct pair pairs[], struct pair isopair[]
 		 struct region regions[NMAX2][NMAX2][NMAX2], int index[NMAX1][3], float p[NMAX1] );
 float distance( float *, float *, int, int, int, float );
 float radial_vel( float *, float *, float *, float *, int, int, int, float );
+float tangential_vel( float *, float *, float *, float *, int, int, int, float );
