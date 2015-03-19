@@ -159,7 +159,7 @@ int data_pair_out( struct pair pairs[],
     for( i=0; i<Npair; i++ ){
 	h1 = pairs[i].id1;
 	h2 = pairs[i].id2;
-	fprintf( file, "%d\t%d\t%1.4e\t%d\t%d\t%1.4e\t%d\t%4.3f\t\t%+4.3f\t%+4.3f\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t\t%d\t%d\t%d\n", 
+	fprintf( file, "%d\t%d\t%1.4e\t%d\t%d\t%1.4e\t%d\t%4.3f\t\t%+4.3f\t%4.3f\t\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t%d\t%4.3f\t\t%d\t%d\t%d\n", 
 		 pairs[i].idpair, 
 		 halos[h1].id_or, pairs[i].M1, pairs[i].oct1,
 		 halos[h2].id_or, pairs[i].M2, pairs[i].oct2,

@@ -346,7 +346,7 @@ int pair_finder( struct halo halos[],
 							   halos[h1].cond_comp[0],
 							   halos[h1].cond_comp[1],
 							   halos[h1].cond_comp[2],
-							   p[LBOX]) + C_H0*pairs[c1].Rdis;
+							   p[LBOX]);
 			  //Id of pair
 			  pairs[c1].idpair = c1;
 			  halos[h1].idpair = c1;
@@ -395,6 +395,8 @@ int pair_finder( struct halo halos[],
 			      isopair[c2].Rdis = pairs[c1].Rdis;
 			      //Relative velocity between halos
 			      isopair[c2].Vrad = pairs[c1].Vrad;
+			      //Tangential velocity between halos
+			      isopair[c2].Vtan = pairs[c1].Vtan;
 			      //Id of pair
 			      isopair[c2].idpair = c1;
 			      c2 += 1;
